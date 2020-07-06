@@ -66,7 +66,7 @@ public class cd extends javax.swing.JFrame {
     private void simpan(){
         try{
             st = cn.createStatement();
-            rs = st.executeQuery("select * from cd where kdcd = '"+jTextField5.getText()+"'");
+            rs = st.executeQuery("select * from cd where kode_cd = '"+jTextField5.getText()+"'");
             if (rs.next()){
                 JOptionPane.showMessageDialog(null, "Penambahan Data CD Telah Dilakukan");
             }else{
@@ -91,7 +91,7 @@ public class cd extends javax.swing.JFrame {
                 int jawab;
                 if ((jawab = JOptionPane.showConfirmDialog(null, "Yakin ingin menghapus data?", "konfirmasi", JOptionPane.YES_NO_OPTION))==0){
                 st = cn.createStatement();
-                String sql = "delete from cd where kdcd='" + jTextField5.getText() + "';";    
+                String sql = "delete from cd where kode_cd='" + jTextField5.getText() + "';";    
                 PreparedStatement ps = cn.prepareStatement(sql);
                 ps.executeUpdate();
                 tampil();
